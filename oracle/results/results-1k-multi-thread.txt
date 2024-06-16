@@ -1,0 +1,51 @@
+
+PL/SQL procedure successfully completed.
+
+
+Table created.
+
+
+Procedure created.
+
+
+Procedure created.
+
+1000 locations, 10 years back, 4 threads
+Creating 1000 locations took +000000000 00:06:00.462039000
+
+PL/SQL procedure successfully completed.
+
+Looking for location -1
+Found 0
+Took +000000000 00:00:00.081359000
+
+
+Loc 12 from 1/1/13 to 1/1/17, 7am to 1pm
+Rows: 6496
+Avg Temp: 55.56
+Median Temp: 55.555
+Took +000000000 00:00:00.017118000
+
+
+Making Bitmap Index On Hour
+Index creation took +000000000 00:00:19.484060000
+
+
+Loc 18 from 1/1/14 to 1/1/18, 10am to 10pm (after index)
+Rows: 16812
+Avg Temp: 55.53
+Median Temp: 55.845
+Took +000000000 00:00:00.030662000
+
+
+
+PL/SQL procedure successfully completed.
+
+IOT_ENTRIES	   3031.5mb
+IDX_ENTRIES_HOUR	262.21mb
+
+PL/SQL procedure successfully completed.
+
+
+Table dropped.
+

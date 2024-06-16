@@ -1,0 +1,21 @@
+networks:
+  maria-iot-data-poc:
+    driver: bridge
+
+services:
+  mariadb-server:
+    container_name: mariadb01
+    image: mariadb:11.3.2
+    environment:
+      - MARIADB_ROOT_PASSWORD=password
+    volumes:
+      - ".:/code"
+    networks:
+      maria-iot-data-poc:
+        aliases:
+          - database
+    ports:
+        - 3306:3306
+
+
+# at one point there was a client container planned but it wasn't needed

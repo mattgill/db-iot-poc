@@ -1,14 +1,15 @@
-version: '3'
-
 networks:
   iot-data-poc:
     driver: bridge
 
 services:
   postgres-server:
+    container_name: postgres01
     image: postgres:16-alpine
     environment:
       - POSTGRES_PASSWORD=password
+    volumes:
+      - ".:/code"
     networks:
       iot-data-poc:
         aliases:
@@ -29,14 +30,3 @@ services:
       -c max_parallel_workers_per_gather=4
       -c max_parallel_workers=8
       -c max_parallel_maintenance_workers=2 
-  
-  postgres-client:
-    image: postgres:16-alpine
-    environment:
-      - POSTGRES_PASSWORD=password
-    volumes:
-      - ".:/code"
-    networks:
-      - iot-data-poc
-    depends_on:
-      - "postgres-server"

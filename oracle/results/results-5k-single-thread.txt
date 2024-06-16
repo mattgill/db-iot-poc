@@ -1,0 +1,39 @@
+
+PL/SQL procedure successfully completed.
+
+
+Table created.
+
+5000 locations, 10 years back
+Location creation took +000000000 00:51:38.124205000
+
+PL/SQL procedure successfully completed.
+
+Looking for location -1
+Found 0 rows
+Took +000000000 00:00:29.739528000
+
+
+Loc 12 from 1/1/13 to 1/1/17, 7am to 1pm
+Rows: 6146
+Avg Temp: 54.88
+Median Temp: 54.575
+Took +000000000 00:00:23.717086000
+
+
+Making Index on Loc, Hour, Date
+declare
+*
+ERROR at line 1:
+ORA-12954: The request exceeds the maximum allowed database size of 12 GB.
+ORA-06512: at line 53
+Help: https://docs.oracle.com/error-help/db/ora-12954/
+
+
+IOT_ENTRIES	   10742.66mb
+
+PL/SQL procedure successfully completed.
+
+
+Table dropped.
+
