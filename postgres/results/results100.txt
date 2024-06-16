@@ -1,0 +1,51 @@
+psql -q -U postgres -h database -w postgres -f 00-scaffold.sql
+psql -q -U postgres -h database -w postgres -f 01-seed-100.sql
+psql -q -U postgres -h database -w postgres -f 02-select.sql
+Starting seeks...
+
+Loc -1 from 1/1/13 to 1/1/17, 7am to 1pm
+ entries 
+---------
+       0
+(1 row)
+
+Time: 734.303 ms
+
+Loc 12 from 1/1/13 to 1/1/17, 7am to 1pm
+ count | min | max |            min             |            max             |         avg         | median 
+-------+-----+-----+----------------------------+----------------------------+---------------------+--------
+  6153 |  12 |  12 | 2014-08-06 07:42:43.730272 | 2016-12-31 13:42:43.730272 | 66.2943555988948480 |  66.78
+(1 row)
+
+Time: 464.469 ms
+
+Making Index on Loc, Hour, Date;
+Time: 5995.490 ms (00:05.995)
+
+Loc 18 from 1/1/14 to 1/1/18, 10am to 10pm (after index)
+ count | min | max |            min             |            max             |         avg         | median 
+-------+-----+-----+----------------------------+----------------------------+---------------------+--------
+ 16172 |  18 |  18 | 2014-08-06 10:42:47.140078 | 2017-12-31 22:42:47.140078 | 65.2551113034875093 | 65.295
+(1 row)
+
+Time: 19.898 ms
+
+
+ table_size 
+------------
+ 1008 MB
+(1 row)
+
+Time: 1.054 ms
+ index_size 
+------------
+ 260 MB
+(1 row)
+
+Time: 0.220 ms
+ max_entry_id 
+--------------
+      8640000
+(1 row)
+
+Time: 0.329 ms

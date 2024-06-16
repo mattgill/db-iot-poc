@@ -1,0 +1,35 @@
+Locations: 1000, Years Back: 10
+Took 478 second
+ 
+Table Records
+*************************** 1. row ***************************
+table_records: 86400000
+   loc12_recs: 86400
+ 
+Loc -1 from 1/1/13 to 1/1/17, 7am to 1pm (Invalid Loc, Nothing Should Be Found)
+*************************** 1. row ***************************
+entries: 0
+ 
+Loc 12 from 1/1/13 to 1/1/17, 7am to 1pm
+*************************** 1. row ***************************
+  row_count: 6139
+ first_date: 2014-08-08 07:10:18
+  last_date: 2016-12-31 13:10:18
+   avg_temp: 49.982805
+median_temp: 50.8800000000
+ 
+Making Index on Loc, Hour, Date
+ 
+Loc 18 from 1/1/14 to 1/1/18, 10am to 10pm (after index)
+*************************** 1. row ***************************
+  row_count: 16154
+ first_date: 2014-08-07 15:10:18
+  last_date: 2017-12-31 22:10:18
+   avg_temp: 49.780285
+median_temp: 49.5300000000
+1	63.54055489	select count(1) as table_records, sum(case when iot_loc = 12 then 1 else 0 end) as loc12_recs from iot_giant
+2	65.81709525	SELECT count(1) as entries\nFROM iot_giant\nwhere iot_loc = -1\n\tand iot_datetime between str_to_date('2013-01-01', '%Y-%m-%d') and str_to_date('2017-01-01', '%Y-%m-%d')\n\tand iot_hour_of_day between 7 and 13
+3	74.68204098	select distinct count(1) over (partition by iot_loc) as row_count\n\t, min(iot_datetime)  over (partition by iot_loc) as first_date\n\t, max(iot_datetime)  over (partition by iot_loc) as last_date\n\t, avg(temperature)  over (partition by iot_loc) as avg_temp\n\t, median(temperature) over (partition by iot_
+4	219.81223915	create index idx_giant on iot_giant(iot_loc, iot_hour_of_day, iot_datetime)
+5	44.19677327	select distinct count(1) over (partition by iot_loc) as row_count\n\t, min(iot_datetime)  over (partition by iot_loc) as first_date\n\t, max(iot_datetime)  over (partition by iot_loc) as last_date\n\t, avg(temperature)  over (partition by iot_loc) as avg_temp\n\t, median(temperature) over (partition by iot_
+6	0.05065442	drop index if exists idx_giant on iot_giant

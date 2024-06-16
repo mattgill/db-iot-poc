@@ -51,3 +51,6 @@ SELECT pg_size_pretty( pg_total_relation_size('iot_giant')) as table_size;
 SELECT pg_size_pretty( pg_total_relation_size('idx_giant')) as index_size;
 select coalesce(max(iot_entry_id), 0) as max_entry_id from iot_giant;
 \timing
+
+-- drop for future runs
+drop index idx_giant;

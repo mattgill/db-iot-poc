@@ -1,0 +1,44 @@
+
+PL/SQL procedure successfully completed.
+
+
+Table created.
+
+
+Procedure created.
+
+
+Procedure created.
+
+10000 locations, 10 years back, 4 threads
+
+PL/SQL procedure successfully completed.
+
+Looking for location -1
+Found 0
+Took +000000000 00:00:00.427277000
+
+
+Loc 12 from 1/1/13 to 1/1/17, 7am to 1pm
+Rows: 6496
+Avg Temp: 54.49
+Median Temp: 54.535
+Took +000000000 00:00:00.051164000
+
+
+Making Bitmap Index On Hour
+declare
+*
+ERROR at line 1:
+ORA-12954: The request exceeds the maximum allowed database size of 12 GB.
+ORA-06512: at line 54
+Help: https://docs.oracle.com/error-help/db/ora-12954/
+
+
+IOT_ENTRIES	   13336.38mb
+
+PL/SQL procedure successfully completed.
+
+
+Table dropped.
+

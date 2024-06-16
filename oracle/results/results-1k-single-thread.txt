@@ -1,0 +1,45 @@
+
+PL/SQL procedure successfully completed.
+
+
+Table created.
+
+1000 locations, 10 years back
+Location creation took +000000000 00:10:20.617408000
+
+PL/SQL procedure successfully completed.
+
+Looking for location -1
+Found 0 rows
+Took +000000000 00:00:06.000085000
+
+
+Loc 12 from 1/1/13 to 1/1/17, 7am to 1pm
+Rows: 6146
+Avg Temp: 55.29
+Median Temp: 54.965
+Took +000000000 00:00:02.118734000
+
+
+Making Index on Loc, Hour, Date
+Index creation took +000000000 00:02:34.734920000
+
+
+Loc 18 from 1/1/14 to 1/1/18, 10am to 10pm (after index)
+Rows: 16163
+Avg Temp: 55.25
+Median Temp: 55.58
+Took +000000000 00:00:00.039164000
+
+
+
+PL/SQL procedure successfully completed.
+
+IOT_ENTRIES	   2147.48mb
+IDX_ENTRIES_SCAN	2421.16mb
+
+PL/SQL procedure successfully completed.
+
+
+Table dropped.
+
