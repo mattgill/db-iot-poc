@@ -1,0 +1,59 @@
+   create_hypertable    
+------------------------
+ (1,public,iot_giant,t)
+(1 row)
+
+Insert timing
+           start            |            end             |    duration     
+----------------------------+----------------------------+-----------------
+ 2025-11-02 00:40:55.283858 | 2025-11-02 00:41:13.461556 | 00:00:18.177698
+(1 row)
+
+Starting seeks...
+
+Loc -1 from 1/1/13 to 1/1/17, 7am to 1pm
+ entries 
+---------
+       0
+(1 row)
+
+Time: 369.827 ms
+
+Loc 12 from 1/1/13 to 1/1/17, 7am to 1pm
+ count | min | max | min | max | avg | median 
+-------+-----+-----+-----+-----+-----+--------
+     0 |     |     |     |     |     |       
+(1 row)
+
+Time: 66.683 ms
+
+Making Index on Loc, Hour, Date;
+Time: 5648.963 ms (00:05.649)
+
+Loc 18 from 1/1/14 to 1/1/18, 10am to 10pm (after index)
+ count | min | max | min | max | avg | median 
+-------+-----+-----+-----+-----+-----+--------
+     0 |     |     |     |     |     |       
+(1 row)
+
+Time: 429.476 ms
+
+
+ total_size 
+------------
+ 173 MB
+(1 row)
+
+Time: 80.666 ms
+ index_size 
+------------
+ 
+(1 row)
+
+Time: 2.769 ms
+ max_entry_id 
+--------------
+       864000
+(1 row)
+
+Time: 82.727 ms

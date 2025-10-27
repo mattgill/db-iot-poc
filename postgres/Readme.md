@@ -17,15 +17,13 @@ On a machine that has docker, it should be as simple as running _./run-from-host
 
 |Task                                                   |1k Records  |20k Records  |
 |-------------------------------------------------------|------------|-------------|
-| Create Locations, 10 Years History                    | N/A        | N/A         |
-| Search for Location -1 Rows (DNE)                     | 00m 28s    | 16m 20s     |
-| Search for Location 12, Jan 2013-2017, 7am to 1pm     | 00m 02s    | 04m 29s     |
-| Make Index                                            | 00m 59s    | 28m 22s     |
+| Create Locations, 10 Years History                    | 07m 47s    | 02h 47m 57s |
+| Search for Location -1 Rows (DNE)                     | 00m 19s    | 29m 14s     |
+| Search for Location 12, Jan 2013-2017, 7am to 1pm     | 00m 01.5s  | 05m 54s     |
+| Make Index                                            | 01m 11s    | 44m 39s     |
 | Search for Location 18, Jan 2014-2018, 10am to 10pm   | 00m 00s    | 00m 00s     |
 
-I neglected to print the location creation time to screen.
-
-You can see the object cache helping out at a small enough table size but at a 20k size the index comes through with flying colors.
+You can see the object cache help but it doesn't make subsequent queries instant at 20k in size.
 
 | Measurement | Size |
 | ----------- | ---- |

@@ -1,0 +1,54 @@
+Insert timing
+           start            |            end             |    duration    
+----------------------------+----------------------------+----------------
+ 2025-11-01 21:34:29.476414 | 2025-11-01 21:34:33.633254 | 00:00:04.15684
+(1 row)
+
+Starting seeks...
+
+Loc -1 from 1/1/13 to 1/1/17, 7am to 1pm
+ entries 
+---------
+       0
+(1 row)
+
+Time: 4.065 ms
+
+Loc 12 from 1/1/13 to 1/1/17, 7am to 1pm
+ count | min | max | min | max | avg | median 
+-------+-----+-----+-----+-----+-----+--------
+     0 |     |     |     |     |     |       
+(1 row)
+
+Time: 2.304 ms
+
+Making Index on Loc, Hour, Date;
+Time: 734.880 ms
+
+Loc 18 from 1/1/14 to 1/1/18, 10am to 10pm (after index)
+ count | min | max | min | max | avg | median 
+-------+-----+-----+-----+-----+-----+--------
+     0 |     |     |     |     |     |       
+(1 row)
+
+Time: 2.453 ms
+
+
+ table_size 
+------------
+ 55 MB
+(1 row)
+
+Time: 0.523 ms
+ index_size 
+------------
+ 26 MB
+(1 row)
+
+Time: 0.214 ms
+ max_entry_id 
+--------------
+       864000
+(1 row)
+
+Time: 1.627 ms
