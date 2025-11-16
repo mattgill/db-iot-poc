@@ -6,6 +6,7 @@ echo " "
 sqlplus -S 'sys/password@localhost' as sysdba @single-01-write-1k.sql > results/results-1k-single-thread.txt
 sqlplus -S 'sys/password@localhost' as sysdba @single-02-select.sql >> results/results-1k-single-thread.txt
 sqlplus -S 'sys/password@localhost' as sysdba @single-03-drop.sql  >> results/results-1k-single-thread.txt
+exit
 
 echo "5k Single Table / Single-Thread Tests"
 echo " "

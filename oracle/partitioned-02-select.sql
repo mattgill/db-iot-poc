@@ -1,5 +1,7 @@
 set serveroutput on;
 
+from iot_test_log;
+
 declare
 	type r_results_rec is record(
 		row_count number
@@ -24,6 +26,13 @@ declare
 	end print_results;
 	
 begin
+	select 'Insert timing'
+	for rec in (
+		select min(datetime) as start, max(datetime) as end, max(datetime) - min(datetime) as duration from iot_test_log
+	) loop
+		dbms_output.put_line('Start: ' || to_char(rec.start, 'yyyy-mm-dd hh24:mi:ss') || ', End: ' || to_char(rec.end, 'yyyy-mm-dd hh24:mi:ss') || ', Duration: ' || to_char(rec.duration));
+	end loop;
+	
 
 	dbms_output.put_line('Looking for location -1');
 	v_timer := systimestamp;

@@ -1,6 +1,10 @@
 -- then we pull a sample query from giant table
 -- Retrieve the data for a certain date AND time period: all records for a certain Location ID between the dates 01.01.2013 and 01.01.2017 and between 07:00 and 13:00.
 
+\echo 'Insert timing'
+select min(datetime) as start, max(datetime) as end, max(datetime) - min(datetime) as duration
+from iot_test_log;
+
 \echo 'Starting seeks...'
 \echo
 

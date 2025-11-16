@@ -1,0 +1,32 @@
+networks:
+  iot-data-poc:
+    driver: bridge
+
+services:
+  postgres-server:
+    container_name: citus01
+    image: citusdata/citus:13.2.0
+    environment:
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ".:/code"
+    networks:
+      iot-data-poc:
+        aliases:
+          - database
+
+    ports:
+        - 5432:5432
+    # not looking for persistent data at the moment
+    #volumes: 
+        # setting wal size because I want to insert a LOT of data.
+    # max locks per transaction because I want to make a lot of partition tables at once
+    # max_parallel_workers_per_gather, max_parallel_workers and max_parallel_maintenance_workers are default values, just don't want to forget
+    command: >
+      -c work_mem=2048MB
+      -c maintenance_work_mem=2048MB
+      -c max_wal_size=10GB
+      -c max_locks_per_transaction=30000
+      -c max_parallel_workers_per_gather=4
+      -c max_parallel_workers=8
+      -c max_parallel_maintenance_workers=2 
